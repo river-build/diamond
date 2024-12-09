@@ -1,0 +1,28 @@
+{
+  "name": "diamond",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:river-build/diamond.git",
+  "author": "g <5714678+giuseppecrj@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@prb/test": "^0.6.4",
+    "ds-test": "github:dapphub/ds-test",
+    "forge-std": "github:foundry-rs/forge-std",
+    "prettier": "^2.8.8",
+    "prettier-plugin-solidity": "^1.4.1"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "all"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.1.0",
+    "solady": "^0.0.281"
+  }
+}
