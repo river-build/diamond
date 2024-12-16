@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.23;
 
-import {SimpleDeployer} from "scripts/common/deployers/SimpleDeployer.s.sol";
-import {MultiInit} from "src/initializers/MultiInit.sol";
+import {SimpleDeployer} from "../../common/deployers/SimpleDeployer.s.sol";
+import {MultiInit} from "../../../src/initializers/MultiInit.sol";
 
 contract DeployMultiInit is SimpleDeployer {
   function versionName() public pure override returns (string memory) {

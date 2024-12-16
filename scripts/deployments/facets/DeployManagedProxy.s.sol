@@ -6,9 +6,9 @@ pragma solidity ^0.8.23;
 //libraries
 
 //contracts
-import {SimpleDeployer} from "scripts/common/deployers/SimpleDeployer.s.sol";
-import {FacetHelper} from "scripts/common/helpers/FacetHelper.s.sol";
-import {ManagedProxyFacet} from "src/proxy/managed/ManagedProxyFacet.sol";
+import {SimpleDeployer} from "../../common/deployers/SimpleDeployer.s.sol";
+import {FacetHelper} from "../../common/helpers/FacetHelper.s.sol";
+import {ManagedProxyFacet} from "../../../src/proxy/managed/ManagedProxyFacet.sol";
 
 contract DeployManagedProxy is FacetHelper, SimpleDeployer {
   constructor() {

@@ -5,19 +5,19 @@ pragma solidity ^0.8.23;
 import {IDiamond, Diamond} from "src/Diamond.sol";
 
 //libraries
-import {DiamondHelper} from "scripts/common/helpers/DiamondHelper.s.sol";
+import {DiamondHelper} from "../../common/helpers/DiamondHelper.s.sol";
 
 //contracts
-import {SimpleDeployer} from "scripts/common/deployers/SimpleDeployer.s.sol";
+import {SimpleDeployer} from "../../common/deployers/SimpleDeployer.s.sol";
 
 // deployments
-import {DeployDiamondCut} from "scripts/deployments/facets/DeployDiamondCut.s.sol";
-import {DeployDiamondLoupe} from "scripts/deployments/facets/DeployDiamondLoupe.s.sol";
-import {DeployIntrospection} from "scripts/deployments/facets/DeployIntrospection.s.sol";
-import {DeployOwnablePending} from "scripts/deployments/facets/DeployOwnablePending.s.sol";
+import {DeployDiamondCut} from "../facets/DeployDiamondCut.s.sol";
+import {DeployDiamondLoupe} from "../facets/DeployDiamondLoupe.s.sol";
+import {DeployIntrospection} from "../facets/DeployIntrospection.s.sol";
+import {DeployOwnablePending} from "../facets/DeployOwnablePending.s.sol";
 
 // utils
-import {DeployMultiInit} from "scripts/deployments/facets/DeployMultiInit.s.sol";
+import {DeployMultiInit} from "../facets/DeployMultiInit.s.sol";
 import {MultiInit} from "src/initializers/MultiInit.sol";
 
 contract DeployDiamond is DiamondHelper, SimpleDeployer {

@@ -6,9 +6,9 @@ pragma solidity ^0.8.23;
 //libraries
 
 //contracts
-import {FacetHelper} from "scripts/common/helpers/FacetHelper.s.sol";
-import {SimpleDeployer} from "scripts/common/deployers/SimpleDeployer.s.sol";
-import {OwnableFacet} from "src/facets/ownable/OwnableFacet.sol";
+import {FacetHelper} from "../../common/helpers/FacetHelper.s.sol";
+import {SimpleDeployer} from "../../common/deployers/SimpleDeployer.s.sol";
+import {OwnableFacet} from "../../../src/facets/ownable/OwnableFacet.sol";
 
 contract DeployOwnable is FacetHelper, SimpleDeployer {
   constructor() {

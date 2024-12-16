@@ -6,7 +6,7 @@ pragma solidity ^0.8.0;
 //libraries
 
 //contracts
-import {DeployBase} from "scripts/common/DeployBase.s.sol";
+import {DeployBase} from "../DeployBase.s.sol";
 
 abstract contract SimpleDeployer is DeployBase {
   constructor() DeployBase() {}
