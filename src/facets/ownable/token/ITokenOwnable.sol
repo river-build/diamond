@@ -6,7 +6,7 @@ pragma solidity ^0.8.23;
 // libraries
 
 // contracts
-import {IERC173, IOwnableBase} from "src/facets/ownable/IERC173.sol";
+import {IOwnableBase} from "src/facets/ownable/IERC173.sol";
 
 interface ITokenOwnableBase is IOwnableBase {
   struct TokenOwnable {
@@ -15,4 +15,4 @@ interface ITokenOwnableBase is IOwnableBase {
   }
 }
 
-interface ITokenOwnable is ITokenOwnableBase, IERC173 {}
+interface ITokenOwnable is ITokenOwnableBase {}

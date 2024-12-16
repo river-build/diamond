@@ -11,7 +11,7 @@ import {ITokenOwnable} from "./ITokenOwnable.sol";
 import {Facet} from "../../Facet.sol";
 import {TokenOwnableBase} from "./TokenOwnableBase.sol";
 
-contract TokenOwnableFacet is ITokenOwnable, TokenOwnableBase, Facet {
+contract TokenOwnableFacet is ITokenOwnable, IERC173, TokenOwnableBase, Facet {
   function __TokenOwnable_init(
     TokenOwnable memory tokenOwnable
   ) external onlyInitializing {
