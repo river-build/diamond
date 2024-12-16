@@ -17,7 +17,7 @@ interface IOwnableBase {
   );
 }
 
-interface IERC173 is IOwnableBase {
+interface IERC173 {
   /// @notice Get the address of the owner
   /// @return The address of the owner.
   function owner() external view returns (address);
