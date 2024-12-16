@@ -3,6 +3,7 @@ auto_detect_solc = false # Foundry will automatically try to resolve appropriate
 block_timestamp = 1_680_220_800 # The value of block.timestamp in tests. March 31, 2023 at 00:00 GMT
 src = "src"
 out = "out"
+test = "test"
 libs = ["node_modules"]
 verbosity = 3 # The verbosity level to use during tests.
 remappings = [
@@ -10,6 +11,7 @@ remappings = [
   "forge-std/=node_modules/forge-std/src/",
   "solady/=node_modules/solady/src/",
   "@openzeppelin/=node_modules/@openzeppelin/",
+  "@prb/test/=node_modules/@prb/test/src/",
 ] # The remappings to use
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

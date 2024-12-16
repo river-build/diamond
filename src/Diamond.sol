@@ -9,7 +9,6 @@ import {DiamondCutBase} from "./facets/cut/DiamondCutBase.sol";
 
 // contracts
 import {Proxy} from "src/proxy/Proxy.sol";
-
 import {DiamondLoupeBase} from "src/facets/loupe/DiamondLoupeBase.sol";
 import {Initializable} from "src/facets/initializable/Initializable.sol";
 

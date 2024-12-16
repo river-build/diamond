@@ -6,11 +6,11 @@ pragma solidity ^0.8.23;
 //libraries
 
 //contracts
-import {Deployer} from "../common/Deployer.s.sol";
+import {SimpleDeployer} from "scripts/common/deployers/SimpleDeployer.s.sol";
 import {DiamondCutFacet} from "src/facets/cut/DiamondCutFacet.sol";
-import {FacetHelper} from "../common/FacetHelper.s.sol";
+import {FacetHelper} from "scripts/common/helpers/FacetHelper.s.sol";
 
-contract DeployDiamondCut is FacetHelper, Deployer {
+contract DeployDiamondCut is FacetHelper, SimpleDeployer {
   constructor() {
     addSelector(DiamondCutFacet.diamondCut.selector);
   }

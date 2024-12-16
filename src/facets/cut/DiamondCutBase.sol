@@ -8,7 +8,7 @@ import {IDiamond} from "src/IDiamond.sol";
 // libraries
 import {DiamondCutStorage} from "./DiamondCutStorage.sol";
 import {EnumerableSet} from "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
-import {LibCall} from "solady/utils/LibCall.sol";
+import {Address} from "@openzeppelin/contracts/utils/Address.sol";
 
 // contracts
 
@@ -196,6 +196,6 @@ library DiamondCutBase {
       revert IDiamondCutBase.DiamondCut_InvalidContract(init);
     }
 
-    LibCall.delegateCallContract(init, initPayload);
+    Address.functionDelegateCall(init, initPayload);
   }
 }

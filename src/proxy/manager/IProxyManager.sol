@@ -7,8 +7,10 @@ pragma solidity ^0.8.23;
 
 // contracts
 interface IProxyManagerBase {
+  /// @dev Thrown when the implementation is not a contract
   error ProxyManager__NotContract(address implementation);
 
+  /// @dev Emitted when the implementation is set
   event ProxyManager__ImplementationSet(address implementation);
 }
 

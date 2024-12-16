@@ -16,7 +16,6 @@ abstract contract ProxyManagerBase is IProxyManagerBase {
     bytes4 selector
   ) internal view virtual returns (address) {
     address implementation = ProxyManagerStorage.layout().implementation;
-
     address facet = IDiamondLoupe(implementation).facetAddress(selector);
     if (facet == address(0)) return implementation;
     return facet;
