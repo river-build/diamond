@@ -5,10 +5,10 @@ pragma solidity ^0.8.23;
 import {IManagedProxyBase} from "./IManagedProxy.sol";
 
 // libraries
-import {ManagedProxyStorage} from "src/proxy/managed/ManagedProxyStorage.sol";
+import {ManagedProxyStorage} from "./ManagedProxyStorage.sol";
 
 // contracts
-import {Proxy} from "src/proxy/Proxy.sol";
+import {Proxy} from "../Proxy.sol";
 
 /**
  * @title Proxy with externally controlled implementation

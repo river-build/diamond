@@ -2,7 +2,7 @@
 pragma solidity ^0.8.23;
 
 // interfaces
-import {IDiamond} from "src/IDiamond.sol";
+import {IDiamond} from "../../IDiamond.sol";
 
 // libraries
 

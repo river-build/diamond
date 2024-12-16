@@ -8,7 +8,7 @@ import {ITokenOwnable} from "./ITokenOwnable.sol";
 // libraries
 
 // contracts
-import {Facet} from "src/facets/Facet.sol";
+import {Facet} from "../../Facet.sol";
 import {TokenOwnableBase} from "./TokenOwnableBase.sol";
 
 contract TokenOwnableFacet is ITokenOwnable, TokenOwnableBase, Facet {

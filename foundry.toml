@@ -12,6 +12,7 @@ remappings = [
   "solady/=node_modules/solady/src/",
   "@openzeppelin/=node_modules/@openzeppelin/",
   "@prb/test/=node_modules/@prb/test/src/",
+  "@river-build/diamond/=src/",
 ] # The remappings to use
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

@@ -8,7 +8,7 @@ import {IOwnablePending} from "./IOwnablePending.sol";
 
 // contracts
 import {OwnablePendingBase} from "./OwnablePendingBase.sol";
-import {Facet} from "src/facets/Facet.sol";
+import {Facet} from "../../Facet.sol";
 
 contract OwnablePendingFacet is IOwnablePending, OwnablePendingBase, Facet {
   function __OwnablePending_init(address owner_) external onlyInitializing {

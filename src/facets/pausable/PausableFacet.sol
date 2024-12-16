@@ -7,9 +7,9 @@ import {IPausable} from "./IPausable.sol";
 // libraries
 
 // contracts
-import {Facet} from "src/facets/Facet.sol";
+import {Facet} from "../Facet.sol";
 import {PausableBase} from "./PausableBase.sol";
-import {OwnableBase} from "src/facets/ownable/OwnableBase.sol";
+import {OwnableBase} from "../ownable/OwnableBase.sol";
 
 contract PausableFacet is IPausable, PausableBase, OwnableBase, Facet {
   function __Pausable_init() external onlyInitializing {

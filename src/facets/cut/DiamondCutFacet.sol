@@ -2,15 +2,15 @@
 pragma solidity ^0.8.23;
 
 // interfaces
-import {IDiamond} from "src/IDiamond.sol";
+import {IDiamond} from "../../IDiamond.sol";
 import {IDiamondCut} from "./IDiamondCut.sol";
 
 // libraries
 
 // contracts
-import {Facet} from "src/facets/Facet.sol";
+import {Facet} from "../Facet.sol";
 import {DiamondCutBase} from "./DiamondCutBase.sol";
-import {OwnableBase} from "src/facets/ownable/OwnableBase.sol";
+import {OwnableBase} from "../ownable/OwnableBase.sol";
 
 contract DiamondCutFacet is IDiamondCut, OwnableBase, Facet {
   function __DiamondCut_init() external onlyInitializing {

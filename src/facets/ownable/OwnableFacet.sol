@@ -2,12 +2,12 @@
 pragma solidity ^0.8.23;
 
 // interfaces
-import {IERC173} from "src/facets/ownable/IERC173.sol";
+import {IERC173} from "./IERC173.sol";
 
 // libraries
 
 // contracts
-import {Facet} from "src/facets/Facet.sol";
+import {Facet} from "../Facet.sol";
 import {OwnableBase} from "./OwnableBase.sol";
 
 contract OwnableFacet is IERC173, OwnableBase, Facet {

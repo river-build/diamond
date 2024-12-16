@@ -9,8 +9,8 @@ import {EIP712Storage} from "./EIP712Storage.sol";
 
 // contracts
 import {EIP712Base} from "./EIP712Base.sol";
-import {Nonces} from "src/utils/Nonces.sol";
-import {Facet} from "src/facets/Facet.sol";
+import {Nonces} from "../../Nonces.sol";
+import {Facet} from "../../../facets/Facet.sol";
 
 contract EIP712Facet is IERC5267, EIP712Base, Nonces, Facet {
   function __EIP712_init(

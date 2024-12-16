@@ -6,8 +6,8 @@ import {IProxyManager} from "./IProxyManager.sol";
 
 // libraries
 import {ProxyManagerBase} from "./ProxyManagerBase.sol";
-import {OwnableBase} from "src/facets/ownable/OwnableBase.sol";
-import {Facet} from "src/facets/Facet.sol";
+import {OwnableBase} from "../../facets/ownable/OwnableBase.sol";
+import {Facet} from "../../facets/Facet.sol";
 
 /**
  * @title ProxyManager

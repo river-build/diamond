@@ -8,7 +8,7 @@ import {IERC165} from "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 
 // contracts
 import {IntrospectionBase} from "./IntrospectionBase.sol";
-import {Facet} from "src/facets/Facet.sol";
+import {Facet} from "../../facets/Facet.sol";
 
 contract IntrospectionFacet is IntrospectionBase, IERC165, Facet {
   function __Introspection_init() external virtual onlyInitializing {

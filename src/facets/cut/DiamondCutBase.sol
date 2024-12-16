@@ -3,7 +3,7 @@ pragma solidity ^0.8.23;
 
 // interfaces
 import {IDiamondCutBase} from "./IDiamondCut.sol";
-import {IDiamond} from "src/IDiamond.sol";
+import {IDiamond} from "../../IDiamond.sol";
 
 // libraries
 import {DiamondCutStorage} from "./DiamondCutStorage.sol";

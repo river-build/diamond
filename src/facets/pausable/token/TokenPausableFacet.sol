@@ -2,14 +2,14 @@
 pragma solidity ^0.8.23;
 
 // interfaces
-import {IPausable} from "src/facets/pausable/IPausable.sol";
+import {IPausable} from "../IPausable.sol";
 
 // libraries
 
 // contracts
-import {Facet} from "src/facets/Facet.sol";
-import {PausableBase} from "src/facets/pausable/PausableBase.sol";
-import {TokenOwnableBase} from "src/facets/ownable/token/TokenOwnableBase.sol";
+import {Facet} from "../../Facet.sol";
+import {PausableBase} from "../PausableBase.sol";
+import {TokenOwnableBase} from "../../ownable/token/TokenOwnableBase.sol";
 
 contract TokenPausableFacet is
   IPausable,

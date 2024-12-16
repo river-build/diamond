@@ -7,9 +7,9 @@ import {IManagedProxy} from "./IManagedProxy.sol";
 // libraries
 
 // contracts
-import {ManagedProxyStorage} from "src/proxy/managed/ManagedProxyStorage.sol";
-import {OwnableBase} from "src/facets/ownable/OwnableBase.sol";
-import {Facet} from "src/facets/Facet.sol";
+import {ManagedProxyStorage} from "./ManagedProxyStorage.sol";
+import {OwnableBase} from "../../facets/ownable/OwnableBase.sol";
+import {Facet} from "../../facets/Facet.sol";
 
 contract ManagedProxyFacet is IManagedProxy, OwnableBase, Facet {
   function __ManagedProxy_init() external onlyInitializing {

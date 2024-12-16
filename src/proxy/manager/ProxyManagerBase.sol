@@ -2,7 +2,7 @@
 pragma solidity ^0.8.23;
 
 // interfaces
-import {IDiamondLoupe} from "src/facets/loupe/IDiamondLoupe.sol";
+import {IDiamondLoupe} from "../../facets/loupe/IDiamondLoupe.sol";
 import {IProxyManagerBase} from "./IProxyManager.sol";
 
 // libraries

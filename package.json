@@ -5,6 +5,9 @@
   "repository": "git@github.com:river-build/diamond.git",
   "author": "g <5714678+giuseppecrj@users.noreply.github.com>",
   "license": "MIT",
+  "files": [
+    "**/*.sol"
+  ],
   "devDependencies": {
     "@prb/test": "^0.6.4",
     "ds-test": "github:dapphub/ds-test",
