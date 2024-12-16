@@ -31,7 +31,7 @@ jobs:
 
       - name: Run Forge fmt
         run: |
-          forge fmt --check
+          prettier --check src scripts test
         id: fmt
 
       - name: Run Forge build
