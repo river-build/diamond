@@ -1,6 +1,6 @@
 {
   "name": "@river-build/diamond",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "repository": "git@github.com:river-build/diamond.git",
   "author": "g <5714678+giuseppecrj@users.noreply.github.com>",
