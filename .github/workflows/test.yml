@@ -25,13 +25,21 @@ jobs:
         with:
           version: nightly
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "yarn"
+
+      - name: Install node dependencies
+        run: yarn install --immutable
+
       - name: Show Forge version
         run: |
           forge --version
 
       - name: Run Forge fmt
         run: |
-          prettier --check src scripts test
+          yarn prettier --check src scripts test
         id: fmt
 
       - name: Run Forge build
