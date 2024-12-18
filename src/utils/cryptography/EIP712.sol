@@ -227,7 +227,7 @@ library EIP712Storage {
   }
 
   bytes32 internal constant STORAGE_SLOT =
-    keccak256("diamond.utils.cryptography.EIP712Storage");
+    0x3a497e775dc7c283402f0d3c39c5f0ea53870eb15ab2dddfde5a1162a84c336c;
 
   function layout() internal pure returns (Layout storage l) {
     bytes32 slot = STORAGE_SLOT;
