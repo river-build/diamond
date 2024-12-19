@@ -7,7 +7,7 @@ pragma solidity ^0.8.23;
 
 // contracts
 
-import {Initializable} from "./initializable/Initializable.sol";
+import {Initializable} from "solady/utils/Initializable.sol";
 import {IntrospectionBase} from "./introspection/IntrospectionBase.sol";
 
 abstract contract Facet is Initializable, IntrospectionBase {

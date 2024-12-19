@@ -7,7 +7,7 @@ pragma solidity ^0.8.23;
 
 // contracts
 import {TestUtils} from "test/TestUtils.sol";
-import {Initializable} from "src/facets/initializable/Initializable.sol";
+import {Initializable} from "solady/utils/Initializable.sol";
 
 contract Mock is Initializable {
   uint256 public value;
@@ -18,7 +18,7 @@ contract Mock is Initializable {
 
   function reinit() external reinitializer(2) {}
 
-  function getVersion() external view returns (uint32) {
+  function getVersion() external view returns (uint64) {
     return _getInitializedVersion();
   }
 }

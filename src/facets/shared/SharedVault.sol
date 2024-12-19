@@ -6,7 +6,6 @@ pragma solidity ^0.8.23;
 // libraries
 
 // contracts
+import {Facet} from "../Facet.sol";
 
-interface IReentrancyGuard {
-  error ReentrancyGuard__ReentrantCall();
-}
+contract SharedVault is Facet {}

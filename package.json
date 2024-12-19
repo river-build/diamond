@@ -8,6 +8,9 @@
   "files": [
     "**/*.sol"
   ],
+  "scripts": {
+    "format": "prettier --write src scripts test"
+  },
   "devDependencies": {
     "@prb/test": "^0.6.4",
     "ds-test": "github:dapphub/ds-test",
@@ -26,6 +29,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.1.0",
+    "@openzeppelin/contracts-upgradeable": "^5.1.0",
     "solady": "^0.0.281"
   }
 }
