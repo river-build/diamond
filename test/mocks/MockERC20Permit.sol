@@ -4,13 +4,16 @@ pragma solidity ^0.8.23;
 // interfaces
 
 // libraries
-import {ERC20Storage} from "src/facets/token/ERC20/ERC20Storage.sol";
 
 // contracts
-import {ERC20} from "src/facets/token/ERC20/ERC20.sol";
+import {ERC20PermitBase} from "src/facets/token/ERC20/permit/ERC20PermitBase.sol";
 
-contract MockERC20Permit is ERC20 {
+contract MockERC20Permit is ERC20PermitBase {
   function mint(address to, uint256 amount) external {
-    ERC20Storage.layout().inner.mint(to, amount);
+    _mint(to, amount);
+  }
+
+  function burn(address from, uint256 amount) external {
+    _burn(from, amount);
   }
 }

@@ -10,6 +10,7 @@ import {SimpleDeployer} from "scripts/common/deployers/SimpleDeployer.s.sol";
 import {FacetHelper} from "scripts/common/helpers/FacetHelper.s.sol";
 import {MockERC20Permit} from "test/mocks/MockERC20Permit.sol";
 import {ERC20} from "src/facets/token/ERC20/ERC20.sol";
+import {ERC20PermitBase} from "src/facets/token/ERC20/permit/ERC20PermitBase.sol";
 
 contract DeployMockERC20Permit is SimpleDeployer, FacetHelper {
   constructor() {
@@ -27,9 +28,9 @@ contract DeployMockERC20Permit is SimpleDeployer, FacetHelper {
     addSelector(ERC20.decimals.selector);
 
     // Permit
-    addSelector(ERC20.nonces.selector);
-    addSelector(ERC20.permit.selector);
-    addSelector(ERC20.DOMAIN_SEPARATOR.selector);
+    addSelector(ERC20PermitBase.nonces.selector);
+    addSelector(ERC20PermitBase.permit.selector);
+    addSelector(ERC20PermitBase.DOMAIN_SEPARATOR.selector);
   }
 
   function versionName() public pure override returns (string memory) {
@@ -37,7 +38,7 @@ contract DeployMockERC20Permit is SimpleDeployer, FacetHelper {
   }
 
   function initializer() public pure override returns (bytes4) {
-    return ERC20.__ERC20_init.selector;
+    return ERC20PermitBase.__ERC20PermitBase_init.selector;
   }
 
   function makeInitData(

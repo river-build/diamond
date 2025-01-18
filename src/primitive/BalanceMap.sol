@@ -1,7 +1,7 @@
 /// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-using BalanceLib for BalanceMap global;
+using BalanceLib for BalanceMap;
 
 struct BalanceMap {
   mapping(address account => uint256) inner;
