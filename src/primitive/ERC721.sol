@@ -19,7 +19,7 @@ struct MinimalERC721Storage {
   // Mapping from token ID to owner address
   OwnersMap owners;
   // Mapping from token ID to approved address
-  mapping(uint256 => address) tokenApprovals;
+  OwnersMap tokenApprovals;
   // Mapping from owner to operator approvals
   mapping(address => mapping(address => bool)) operatorApprovals;
   // Total supply of tokens
@@ -100,7 +100,7 @@ library ERC721Lib {
       revert IERC721Errors.ERC721InvalidApprover(msg.sender);
     }
 
-    self.tokenApprovals[tokenId] = to;
+    self.tokenApprovals.set(tokenId, to);
     emit IERC721.Approval(owner, to, tokenId);
   }
 
@@ -109,7 +109,7 @@ library ERC721Lib {
     uint256 tokenId
   ) internal view returns (address) {
     requireMinted(self, tokenId);
-    return self.tokenApprovals[tokenId];
+    return self.tokenApprovals.get(tokenId);
   }
 
   function setApprovalForAll(
@@ -160,7 +160,7 @@ library ERC721Lib {
     address owner = ownerOf(self, tokenId);
 
     // Clear approvals
-    delete self.tokenApprovals[tokenId];
+    self.tokenApprovals.set(tokenId, address(0));
 
     // Decrement total supply
     unchecked {
@@ -193,7 +193,7 @@ library ERC721Lib {
     }
 
     // Clear approvals
-    delete self.tokenApprovals[tokenId];
+    self.tokenApprovals.set(tokenId, address(0));
 
     _update(self, from, to);
 
