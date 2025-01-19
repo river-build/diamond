@@ -42,7 +42,8 @@ library ERC20Lib {
     address spender,
     uint256 value
   ) internal {
-    _approve(self, msg.sender, spender, value);
+    self.allowances.set(msg.sender, spender, value);
+    emit IERC20.Approval(msg.sender, spender, value);
   }
 
   /// @dev Moves a `value` amount of tokens from the caller's account to `to`.
@@ -96,17 +97,6 @@ library ERC20Lib {
       self.totalSupply -= value;
     }
     emit IERC20.Transfer(account, address(0), value);
-  }
-
-  /// @dev Sets `value` as the allowance of `spender` over the `owner` s tokens.
-  function _approve(
-    MinimalERC20Storage storage self,
-    address owner,
-    address spender,
-    uint256 value
-  ) internal {
-    self.allowances.set(owner, spender, value);
-    emit IERC20.Approval(owner, spender, value);
   }
 
   /// @dev Updates `owner` s allowance for `spender` based on spent `value`.
