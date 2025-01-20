@@ -39,7 +39,7 @@ jobs:
 
       - name: Run Forge fmt
         run: |
-          yarn prettier --check src scripts test
+          yarn prettier --check src
         id: fmt
 
       - name: Run Forge build

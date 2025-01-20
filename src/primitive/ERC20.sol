@@ -4,10 +4,8 @@ pragma solidity ^0.8.19;
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {IERC20Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
 
-import {AllowanceMap} from "./AllowanceMap.sol";
-import {BalanceMap} from "./BalanceMap.sol";
-
-using ERC20Lib for MinimalERC20Storage global;
+import {AllowanceMap, AllowanceLib} from "./AllowanceMap.sol";
+import {BalanceMap, BalanceLib} from "./BalanceMap.sol";
 
 /// @notice Minimal storage layout for an ERC20 token
 /// @dev Do not modify the layout of this struct especially if it's nested in another struct
@@ -20,6 +18,9 @@ struct MinimalERC20Storage {
 
 /// @notice Rewrite of OpenZeppelin's ERC20Upgradeable adapted to use a flexible storage slot
 library ERC20Lib {
+  using BalanceLib for BalanceMap;
+  using AllowanceLib for AllowanceMap;
+
   function balanceOf(
     MinimalERC20Storage storage self,
     address account
@@ -41,7 +42,8 @@ library ERC20Lib {
     address spender,
     uint256 value
   ) internal {
-    self.approve(msg.sender, spender, value);
+    self.allowances.set(msg.sender, spender, value);
+    emit IERC20.Approval(msg.sender, spender, value);
   }
 
   /// @dev Moves a `value` amount of tokens from the caller's account to `to`.
@@ -50,7 +52,7 @@ library ERC20Lib {
     address to,
     uint256 value
   ) internal {
-    self.transfer(msg.sender, to, value);
+    _transfer(self, msg.sender, to, value);
   }
 
   /// @dev Moves a `value` amount of tokens from `from` to `to` using the allowance mechanism.
@@ -61,8 +63,8 @@ library ERC20Lib {
     address to,
     uint256 value
   ) internal {
-    self.spendAllowance(from, msg.sender, value);
-    self.transfer(from, to, value);
+    _spendAllowance(self, from, msg.sender, value);
+    _transfer(self, from, to, value);
   }
 
   /// @dev Creates a `value` amount of tokens and assigns them to `account`, by transferring it from address(0).
@@ -97,19 +99,8 @@ library ERC20Lib {
     emit IERC20.Transfer(account, address(0), value);
   }
 
-  /// @dev Sets `value` as the allowance of `spender` over the `owner` s tokens.
-  function approve(
-    MinimalERC20Storage storage self,
-    address owner,
-    address spender,
-    uint256 value
-  ) internal {
-    self.allowances.set(owner, spender, value);
-    emit IERC20.Approval(owner, spender, value);
-  }
-
   /// @dev Updates `owner` s allowance for `spender` based on spent `value`.
-  function spendAllowance(
+  function _spendAllowance(
     MinimalERC20Storage storage self,
     address owner,
     address spender,
@@ -135,7 +126,7 @@ library ERC20Lib {
   }
 
   /// @dev Moves a `value` amount of tokens from `from` to `to`.
-  function transfer(
+  function _transfer(
     MinimalERC20Storage storage self,
     address from,
     address to,

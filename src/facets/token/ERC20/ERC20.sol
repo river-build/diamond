@@ -8,12 +8,14 @@ import {IERC20Metadata} from "@openzeppelin/contracts/token/ERC20/extensions/IER
 
 // libraries
 import {ERC20Storage} from "./ERC20Storage.sol";
+import {ERC20Lib, MinimalERC20Storage} from "src/primitive/ERC20.sol";
 
 // contracts
-import {ERC20PermitBase} from "./permit/ERC20PermitBase.sol";
 import {Facet} from "../../Facet.sol";
 
-abstract contract ERC20 is IERC20, IERC20Metadata, ERC20PermitBase, Facet {
+abstract contract ERC20 is IERC20, IERC20Metadata, Facet {
+  using ERC20Lib for MinimalERC20Storage;
+
   function __ERC20_init(
     string memory name_,
     string memory symbol_,
@@ -35,8 +37,6 @@ abstract contract ERC20 is IERC20, IERC20Metadata, ERC20PermitBase, Facet {
     self.name = name_;
     self.symbol = symbol_;
     self.decimals = decimals_;
-
-    __EIP712_init_unchained(name_, "1");
   }
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
@@ -106,29 +106,14 @@ abstract contract ERC20 is IERC20, IERC20Metadata, ERC20PermitBase, Facet {
   }
 
   /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
-  /*                           PERMIT                           */
+  /*                           MINT                             */
   /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
-  /// @inheritdoc IERC20Permit
-  function nonces(address owner) external view returns (uint256 result) {
-    return _latestNonce(owner);
+  function _mint(address to, uint256 amount) internal {
+    ERC20Storage.layout().inner.mint(to, amount);
   }
 
-  /// @inheritdoc IERC20Permit
-  function permit(
-    address owner,
-    address spender,
-    uint256 amount,
-    uint256 deadline,
-    uint8 v,
-    bytes32 r,
-    bytes32 s
-  ) external {
-    _permit(owner, spender, amount, deadline, v, r, s);
-  }
-
-  /// @inheritdoc IERC20Permit
-  function DOMAIN_SEPARATOR() external view returns (bytes32 result) {
-    return _domainSeparatorV4();
+  function _burn(address from, uint256 amount) internal {
+    ERC20Storage.layout().inner.burn(from, amount);
   }
 }
