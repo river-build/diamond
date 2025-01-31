@@ -27,6 +27,5 @@
   "dependencies": {
     "@openzeppelin/contracts": "^5.2.0",
     "solady": "^0.1.2"
-  },
-  "packageManager": "yarn@3.8.0"
+  }
 }
