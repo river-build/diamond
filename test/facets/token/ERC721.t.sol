@@ -35,6 +35,7 @@ contract ERC721Test is TestUtils {
     address operator,
     uint256 tokenId
   ) {
+    vm.assume(to != operator);
     vm.prank(to);
     mockERC721.approve(operator, tokenId);
     _;
@@ -45,6 +46,7 @@ contract ERC721Test is TestUtils {
     address operator,
     bool approved
   ) {
+    vm.assume(to != operator);
     vm.prank(to);
     mockERC721.setApprovalForAll(operator, approved);
     _;

@@ -6,13 +6,21 @@ pragma solidity ^0.8.23;
 // libraries
 
 // contracts
-import {MockERC721} from "forge-std/mocks/MockERC721.sol";
+import {ERC721} from "solady/tokens/ERC721.sol";
 
-contract MockToken is MockERC721 {
+contract MockToken is ERC721 {
   uint256 public tokenId;
 
-  constructor() {
-    initialize("MockToken", "MTK");
+  function name() public view override returns (string memory) {
+      return "MockToken";
+  }
+
+  function symbol() public view override returns (string memory) {
+      return "MTK";
+  }
+
+  function tokenURI(uint256 id) public view override returns (string memory) {
+      return "MockTokenURI";
   }
 
   function mintTo(address to) external returns (uint256) {
