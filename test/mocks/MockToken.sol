@@ -11,16 +11,16 @@ import {ERC721} from "solady/tokens/ERC721.sol";
 contract MockToken is ERC721 {
   uint256 public tokenId;
 
-  function name() public view override returns (string memory) {
-      return "MockToken";
+  function name() public pure override returns (string memory) {
+    return "MockToken";
   }
 
-  function symbol() public view override returns (string memory) {
-      return "MTK";
+  function symbol() public pure override returns (string memory) {
+    return "MTK";
   }
 
-  function tokenURI(uint256 id) public view override returns (string memory) {
-      return "MockTokenURI";
+  function tokenURI(uint256) public pure override returns (string memory) {
+    return "MockTokenURI";
   }
 
   function mintTo(address to) external returns (uint256) {

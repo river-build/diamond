@@ -8,14 +8,11 @@ import {IERC20Metadata} from "@openzeppelin/contracts/token/ERC20/extensions/IER
 
 // libraries
 import {ERC20Storage} from "./ERC20Storage.sol";
-import {ERC20Lib, MinimalERC20Storage} from "src/primitive/ERC20.sol";
 
 // contracts
 import {Facet} from "../../Facet.sol";
 
 abstract contract ERC20 is IERC20, IERC20Metadata, Facet {
-  using ERC20Lib for MinimalERC20Storage;
-
   function __ERC20_init(
     string memory name_,
     string memory symbol_,

@@ -7,8 +7,6 @@ import {IERC20Permit} from "@openzeppelin/contracts/token/ERC20/extensions/IERC2
 
 // libraries
 
-import {ERC20Lib, MinimalERC20Storage} from "src/primitive/ERC20.sol";
-
 // contracts
 import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import {Nonces} from "../../../../utils/Nonces.sol";
@@ -16,8 +14,6 @@ import {EIP712} from "../../../../utils/cryptography/EIP712.sol";
 import {ERC20} from "../ERC20.sol";
 
 abstract contract ERC20PermitBase is IERC20PermitBase, ERC20, EIP712, Nonces {
-  using ERC20Lib for MinimalERC20Storage;
-
   function __ERC20PermitBase_init(
     string memory name_,
     string memory symbol_,
