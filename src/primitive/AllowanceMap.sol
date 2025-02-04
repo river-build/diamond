@@ -4,7 +4,8 @@ pragma solidity ^0.8.19;
 using AllowanceLib for AllowanceMap global;
 
 struct AllowanceMap {
-  mapping(address account => mapping(address spender => uint256)) inner;
+  // no direct access
+  uint256 placeholder;
 }
 
 library AllowanceLib {
