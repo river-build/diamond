@@ -7,19 +7,18 @@ import {IERC721Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.s
 import {IERC721Receiver} from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 
 // libraries
-import {BalanceMap, BalanceLib} from "./BalanceMap.sol";
-import {OwnersMap, OwnersMapLib} from "./OwnersMap.sol";
+import {AddressToUint256Map, Uint256ToAddressMap} from "./HashMap.sol";
 
 /// @notice Minimal storage layout for an ERC721 token
 /// @dev Do not modify the layout of this struct especially if it's nested in another struct
 /// or used in a linear storage layout
 struct MinimalERC721Storage {
   // Mapping owner address to token count
-  BalanceMap balances;
+  AddressToUint256Map balances;
   // Mapping from token ID to owner address
-  OwnersMap owners;
+  Uint256ToAddressMap owners;
   // Mapping from token ID to approved address
-  OwnersMap tokenApprovals;
+  Uint256ToAddressMap tokenApprovals;
   // Mapping from owner to operator approvals
   mapping(address => mapping(address => bool)) operatorApprovals;
   // Total supply of tokens
@@ -30,9 +29,6 @@ struct MinimalERC721Storage {
 /// @dev Do not modify the layout of this struct especially if it's nested in another struct
 /// or used in a linear storage layout
 library ERC721Lib {
-  using OwnersMapLib for OwnersMap;
-  using BalanceLib for BalanceMap;
-
   function balanceOf(
     MinimalERC721Storage storage self,
     address account
@@ -169,7 +165,7 @@ library ERC721Lib {
 
     // Underflow impossible since balance is always >= 1
     _deductBalance(self, owner);
-    delete self.owners.data[tokenId];
+    self.owners.set(tokenId, address(0));
 
     emit IERC721.Transfer(owner, address(0), tokenId);
   }

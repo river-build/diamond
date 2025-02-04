@@ -30,11 +30,8 @@ contract ERC721Test is TestUtils {
     _;
   }
 
-  modifier givenAccountIsApproved(
-    address to,
-    address operator,
-    uint256 tokenId
-  ) {
+  modifier givenAccountIsApproved(address to, address operator, uint256 tokenId)
+  {
     vm.assume(to != operator);
     vm.prank(to);
     mockERC721.approve(operator, tokenId);

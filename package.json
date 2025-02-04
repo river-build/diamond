@@ -8,6 +8,10 @@
   "files": [
     "**/*.sol"
   ],
+  "scripts": {
+    "prettier": "prettier --check {scripts,src,test}/**/*.sol",
+    "prettier:fix": "prettier --write {scripts,src,test}/**/*.sol"
+  },
   "devDependencies": {
     "@prb/test": "^0.6.4",
     "ds-test": "github:dapphub/ds-test",
@@ -22,7 +26,10 @@
     "semi": true,
     "singleQuote": false,
     "tabWidth": 2,
-    "trailingComma": "all"
+    "trailingComma": "all",
+    "plugins": [
+      "prettier-plugin-solidity"
+    ]
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.2.0",
